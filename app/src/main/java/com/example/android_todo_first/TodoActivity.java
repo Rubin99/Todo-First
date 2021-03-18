@@ -38,6 +38,16 @@ public class TodoActivity extends AppCompatActivity {
                 TodoTextView.setText(mTodos[mTodoIndex]);
             }
         });
+
+        Button buttonPrev = (Button) findViewById(R.id.buttonPrev);
+        buttonPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mTodoIndex = (mTodoIndex - 1) % mTodos.length;
+                TodoTextView.setText(mTodos[mTodoIndex]);
+            }
+        });
+
         if (savedInstanceState != null){
             mTodoIndex = savedInstanceState.getInt(TODO_INDEX, 0);
         }
